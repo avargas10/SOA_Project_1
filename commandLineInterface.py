@@ -40,12 +40,16 @@ class CommandLineInterface:
             sender_pid = args[0]
             receiver_pid = args[1]
             content = ' '.join(args[2:])
-            self.simulation.processes[sender_pid].send_message(receiver_pid, content)
+            mailbox = self.simulation.processes[receiver_pid].get_mailbox()
+            self.simulation.processes[sender_pid].send_message(receiver_pid, content, mailbox)
         elif command_name == 'receive_message':
             pid = args[0]
             self.simulation.processes[pid].receive_message()
         elif command_name == 'display_state':
             self.simulation.display_state()
+        elif command_name == 'run_test':
+            test_file_path = args[0]
+            self.run_tests(test_file_path)
         elif command_name == 'help':
             self.display_help()
         elif command_name == 'exit':

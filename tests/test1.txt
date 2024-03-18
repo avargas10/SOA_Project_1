@@ -4,5 +4,7 @@ create_mailbox A
 create_mailbox B
 assign_mailbox 1 A
 assign_mailbox 2 B
-send_message 1 2 "Hello from Process 1"
-send_message 2 1 "Hello from Process 2"
+
+send_message 1 2 Hello from Process 1
+send_message 2 1 Hello from
+
