@@ -1,0 +1,4 @@
+2024-04-03 22:12:48,137 - INFO - Message sent from process p03 to p04
+2024-04-03 22:12:48,153 - INFO - Process p03 current status Status.BLOCKED after Operation.SEND
+2024-04-03 22:12:48,169 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x00000237D30B11F0>>
+2024-04-03 22:12:48,200 - INFO - Process p03 started waiting for messages

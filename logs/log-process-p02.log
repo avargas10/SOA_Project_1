@@ -1,0 +1,11 @@
+2024-04-03 22:10:47,339 - INFO - Process p02 current status Status.RUNNING after Operation.RECEIVE
+2024-04-03 22:10:47,355 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x00000237D30B0AD0>>
+2024-04-03 22:10:47,386 - INFO - Process p02 started waiting for messages
+2024-04-03 22:10:47,402 - INFO - Process p02 received message from p01: "Hello, World"
+2024-04-03 22:10:47,417 - INFO - Wait for message in process p02 is over
+2024-04-03 22:10:47,417 - INFO - Process p02 current status Status.RUNNING after Operation.RECEIVE
+2024-04-03 22:10:47,433 - INFO - Thread for function <bound method Process.wait_for_message of <process.Process object at 0x00000237D30B0AD0>> killed
+2024-04-03 22:11:12,542 - INFO - Message sent from process p02 to p01
+2024-04-03 22:11:12,542 - INFO - Process p02 current status Status.BLOCKED after Operation.SEND
+2024-04-03 22:11:12,542 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x00000237D30B0AD0>>
+2024-04-03 22:11:12,542 - INFO - Process p02 started waiting for messages

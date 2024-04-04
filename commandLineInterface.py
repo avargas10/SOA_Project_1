@@ -39,9 +39,17 @@ class CommandLineInterface:
         elif command_name == 'send_message':
             sender_pid = args[0]
             receiver_pid = args[1]
+            priority = 0  # 0 por default
+            
+            # Revisamos si pasaron prioridad o no
+            if args[-1].isdigit():
+                priority = int(args.pop())  # sacamos el argumento
+                
             content = ' '.join(args[2:])
             mailbox = self.simulation.processes[receiver_pid].get_mailbox()
-            self.simulation.processes[sender_pid].send_message(receiver_pid, content, mailbox)
+            
+            # enviamos con prioridad
+            self.simulation.processes[sender_pid].send_message(receiver_pid, content, mailbox, priority)
         elif command_name == 'receive_message':
             pid = args[0]
             self.simulation.processes[pid].receive_message()

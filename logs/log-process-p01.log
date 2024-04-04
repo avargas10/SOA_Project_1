@@ -1,0 +1,5 @@
+2024-04-03 21:51:21,994 - ERROR - Process has no mailbox assigned.
+2024-04-03 21:52:07,969 - INFO - Message sent from process p01 to p02
+2024-04-03 21:52:07,969 - INFO - Process p01 current status Status.BLOCKED after Operation.SEND
+2024-04-03 21:52:07,969 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x000001E3F0CE5A90>>
+2024-04-03 21:52:07,970 - INFO - Process p01 started waiting for messages

@@ -69,10 +69,11 @@ class Process():
     def assign_mailbox(self, mailbox):
         self.mailbox = mailbox
 
-    def send_message(self, destination_pid, content, mailbox):
+    def send_message(self, destination_pid, content, mailbox, priority=0):
         if self.status == Status.RUNNING:
             if self.mailbox: 
-                message = Message(self.pid, destination_pid, content)
+                # Agrega prioridad
+                message = Message(self.pid, destination_pid, content, priority)
                 mailbox.send(message)
                 self.logger.info(f"Message sent from process {self.pid} to {destination_pid}")
                 self.manage_sync(Operation.SEND)

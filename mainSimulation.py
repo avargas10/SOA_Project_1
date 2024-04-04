@@ -28,5 +28,13 @@ class Simulation:
         pass
 
     def display_state(self):
-        # Aquí implementa la lógica para mostrar el estado del sistema
-        pass
+        print("System State:")
+        print("Processes:")
+        for pid, process in self.processes.items():
+            mailbox_id = process.mailbox.id if process.mailbox else "None"
+            print(f"  PID: {pid}, Mailbox Assigned: {mailbox_id}, Status: {process.status.name}")
+
+        print("\nMailboxes:")
+        for mailbox_id, mailbox in self.mailboxes.items():
+            messages_detail = ", ".join([f"{msg.source} -> {msg.destination}: '{msg.content}' (Priority: {msg.priority})" for msg in mailbox.messages])
+            print(f"  Mailbox ID: {mailbox_id}, Messages: [{messages_detail}]")

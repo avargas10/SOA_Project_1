@@ -7,7 +7,16 @@ class CustomMailbox:
         self.logger = Logger(MAILBOX_LOGGER + "-" + id) 
 
     def send(self, message):
-        self.messages.append(message)
+         # Insert message based on priority
+        inserted = False
+        for i in range(len(self.messages)):
+            if self.messages[i].priority < message.priority:
+                self.messages.insert(i, message)
+                inserted = True
+                break
+        if not inserted:
+            self.messages.append(message)
+
 
     def receive(self):
         if self.messages:
