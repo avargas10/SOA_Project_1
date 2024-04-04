@@ -1,9 +1,10 @@
-2024-04-04 16:17:08,853 - INFO - Mailbox B, created with discipline FIFO and size 10
-2024-04-04 16:17:08,853 - INFO - Mailbox B new message inserted
-2024-04-04 16:17:08,854 - INFO - Not sorted
-2024-04-04 16:17:08,854 - INFO - Mailbox B new message inserted
-2024-04-04 16:17:08,854 - INFO - Not sorted
-2024-04-04 16:17:08,854 - INFO - Mailbox B new message inserted
-2024-04-04 16:17:08,854 - INFO - Not sorted
-2024-04-04 16:17:08,854 - INFO - Mailbox B new message inserted
-2024-04-04 16:17:08,854 - INFO - Not sorted
+2024-04-04 16:47:13,915 - INFO - Mailbox B, created with discipline PRIORITY and size 3
+2024-04-04 16:47:13,916 - INFO - Mailbox B new message inserted
+2024-04-04 16:47:13,916 - INFO - Mailbox B Sorted by Priority
+2024-04-04 16:47:13,917 - INFO - Mailbox B new message inserted
+2024-04-04 16:47:13,917 - INFO - Mailbox B Sorted by Priority
+2024-04-04 16:47:13,917 - INFO - Mailbox B new message inserted
+2024-04-04 16:47:13,917 - INFO - Mailbox B Sorted by Priority
+2024-04-04 16:47:13,917 - INFO - Mailbox B Oldest message deleted
+2024-04-04 16:47:13,917 - INFO - Mailbox B new message inserted
+2024-04-04 16:47:13,917 - INFO - Mailbox B Sorted by Priority

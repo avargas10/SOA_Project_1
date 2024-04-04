@@ -58,11 +58,11 @@ class CommandValidator:
         """
         isValid = False
         extractedArgs = {}
-        if addressing in [Addressing.DIRECT_EXPLICIT, Addressing.DIRECT_IMPLICIT] and len(args) >= 2:
+        if addressing in [Addressing.DIRECT_EXPLICIT] and len(args) >= 2:
             extractedArgs[Arguments.RECEIVER] = args[0]
             extractedArgs[Arguments.SENDER] = args[1]
             isValid = True
-        elif addressing in [Addressing.INDIRECT_DYNAMIC, Addressing.INDIRECT_STATIC] and len(args) >= 1:
+        elif addressing in [Addressing.INDIRECT_DYNAMIC, Addressing.INDIRECT_STATIC, Addressing.DIRECT_IMPLICIT] and len(args) >= 1:
             extractedArgs[Arguments.RECEIVER] = args[0]
             isValid = True
         return isValid, extractedArgs
