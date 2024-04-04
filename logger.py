@@ -1,13 +1,16 @@
 import logging
 import sys
-
+import os
 #run_test tests/test1.txt
 
 from constants import LOGS_PATH
 from datetime import datetime
+import shutil
 
 class Logger:
-    def __init__(self, loggerName):
+    def __init__(self, loggerName, printConsole=False, clean=False):
+        if clean:
+            self.clean_logs()
         self.loggerName = loggerName
         self.filename = LOGS_PATH + self.loggerName + ".log"
         self.logger = logging.getLogger(self.filename)
@@ -23,6 +26,8 @@ class Logger:
         # Configurar el manejador de consola para imprimir en la consola
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(logging.ERROR)
+        if printConsole:
+            console_handler.setLevel(logging.INFO)
         console_handler.setFormatter(self.formatter)
         self.logger.addHandler(console_handler)
 
@@ -34,6 +39,10 @@ class Logger:
 
     def info(self, message):
         self.logger.info(message)
+    
+    def clean_logs(self):
+        shutil.rmtree(LOGS_PATH)
+        os.mkdir(LOGS_PATH)
 
     def close(self):
         # Limpiar los manejadores de registro

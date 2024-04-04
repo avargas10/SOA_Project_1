@@ -1,15 +1,8 @@
-2024-03-16 20:35:19,532 - INFO - Message sent from process 1 to 2
-2024-03-16 20:35:19,532 - INFO - Process 1 current status Status.BLOCKED after Operation.SEND
-2024-03-16 20:35:19,532 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55d90>>
-2024-03-16 20:35:19,532 - INFO - Process 1 started waiting for messages
-2024-03-16 20:35:19,533 - INFO - Process 1 received message from 2: Hello from
-2024-03-16 20:35:19,533 - INFO - Wait for message in process 1 is over
-2024-03-16 20:35:19,533 - INFO - Process 1 current status Status.RUNNING after Operation.RECEIVE
-2024-03-16 20:35:19,533 - INFO - Thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55d90>> killed
-2024-03-16 20:35:31,397 - INFO - Process 1 current status Status.RUNNING after Operation.RECEIVE
-2024-03-16 20:35:31,397 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55d90>>
-2024-03-16 20:35:31,397 - INFO - Process 1 started waiting for messages
-2024-03-16 20:35:48,426 - INFO - Process 1 received message from 2: Hello from
-2024-03-16 20:35:48,426 - INFO - Wait for message in process 1 is over
-2024-03-16 20:35:48,426 - INFO - Process 1 current status Status.RUNNING after Operation.RECEIVE
-2024-03-16 20:35:48,426 - INFO - Thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55d90>> killed
+2024-04-04 16:17:08,854 - INFO - Message sent from process 1 to B
+2024-04-04 16:17:08,854 - INFO - Process 1 current status Status.RUNNING after Operation.SEND
+2024-04-04 16:17:08,854 - INFO - Message sent from process 1 to B
+2024-04-04 16:17:08,854 - INFO - Process 1 current status Status.RUNNING after Operation.SEND
+2024-04-04 16:17:08,854 - INFO - Message sent from process 1 to B
+2024-04-04 16:17:08,854 - INFO - Process 1 current status Status.RUNNING after Operation.SEND
+2024-04-04 16:17:08,854 - INFO - Message sent from process 1 to B
+2024-04-04 16:17:08,854 - INFO - Process 1 current status Status.RUNNING after Operation.SEND

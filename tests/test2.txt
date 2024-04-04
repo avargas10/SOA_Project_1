@@ -1,1 +1,7 @@
-receive_message 1
+create_process 1
+create_process 2
+create_process 3
+send_message 3 2 hello
+receive_message 2 1
+send_message 1 2 hello
+receive_message 2 1

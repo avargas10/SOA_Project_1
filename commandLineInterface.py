@@ -27,8 +27,7 @@ class CommandLineInterface:
         args = parts[1:]
 
         if command_name == 'create_process':
-            pid = args[0]
-            self.simulation.create_process(pid)
+            self.simulation.create_process(args)
         elif command_name == 'create_mailbox':
             mailbox_id = args[0]
             self.simulation.create_mailbox(mailbox_id)
@@ -37,19 +36,16 @@ class CommandLineInterface:
             mailbox_id = args[1]
             self.simulation.assign_mailbox_to_process(pid, mailbox_id)
         elif command_name == 'send_message':
-            sender_pid = args[0]
-            receiver_pid = args[1]
-            content = ' '.join(args[2:])
-            mailbox = self.simulation.processes[receiver_pid].get_mailbox()
-            self.simulation.processes[sender_pid].send_message(receiver_pid, content, mailbox)
+            self.simulation.process_send(args)
         elif command_name == 'receive_message':
-            pid = args[0]
-            self.simulation.processes[pid].receive_message()
+            self.simulation.process_receive(args)
         elif command_name == 'display_state':
             self.simulation.display_state()
         elif command_name == 'run_test':
             test_file_path = args[0]
             self.run_tests(test_file_path)
+        elif command_name == 'run_default_test':
+            self.run_tests("/Users/andresvargasrivera/repos/SOA/SOA_Project_1/tests/test1.txt")
         elif command_name == 'help':
             self.display_help()
         elif command_name == 'exit':
@@ -64,8 +60,8 @@ class CommandLineInterface:
         print("create_process <pid>")
         print("create_mailbox <mailbox_id>")
         print("assign_mailbox <pid> <mailbox_id>")
-        print("send_message <sender_pid> <receiver_pid> <content>")
-        print("receive_message <pid>")
+        print("send_message <sender_pid> <receiver_pid>/<mailbox_id> <priority> <content> ")       
+        print("receive_message <receiver_pid> <sender_pid> <mailbox>")
         print("display_state")
         print("help")
         print("exit")

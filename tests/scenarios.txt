@@ -1,0 +1,33 @@
+
+#scenario 1
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=DIRECT_EXPLICIT
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=PRIORITY
+
+#scenario 2
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=DIRECT_IMPLICIT
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=PRIORITY
+
+
+#scenario 3
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=INDIRECT_STATIC
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=PRIORITY
+
+#scenario 4
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=INDIRECT_DYNAMIC
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=PRIORITY

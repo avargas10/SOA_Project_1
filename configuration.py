@@ -6,11 +6,10 @@ class Synchronization(Enum):
     TEST_FOR_ARRIVAL = 3
 
 class Addressing(Enum):
-    DIRECT_SEND_RECEIVE = 1
-    EXPLICIT_RECEIVE = 2
-    IMPLICIT = 3
-    DYNAMIC = 4
-    INDIRECT = 5
+    DIRECT_EXPLICIT = 1
+    DIRECT_IMPLICIT = 2
+    INDIRECT_STATIC = 3
+    INDIRECT_DYNAMIC = 4
 
 class Format(Enum):
     FIXED_LENGTH = 1
@@ -26,6 +25,7 @@ class Configuration:
         self.syncReceiver = None
         self.addr = None
         self.format = None
+        self.queue_size = 1
         self.messageLenght = 0
         self.queue_discipline = None
         self.load_configuration(file_path)
@@ -46,6 +46,8 @@ class Configuration:
                     self.messageLenght = int(value)
                 elif key == 'QueueDiscipline':
                     self.queue_discipline = QueueDiscipline[value.upper()]
+                elif key == 'QueueSize':
+                    self.queue_size = int(value)
 
     def get_sync_sender_configuration(self):
         return self.syncSender
@@ -61,6 +63,9 @@ class Configuration:
 
     def get_queue_discipline_configuration(self):
         return self.queue_discipline
+    
+    def get_queue_size_configuration(self):
+        return self.queue_size
 
 # Ejemplo de uso
 if __name__ == "__main__":
@@ -72,3 +77,4 @@ if __name__ == "__main__":
     print("Addressing:", config.get_addressing_configuration())
     print("Format:", config.get_format_configuration())
     print("Queue Discipline:", config.get_queue_discipline_configuration())
+    print("Queue Size:", config.get_queue_size_configuration())

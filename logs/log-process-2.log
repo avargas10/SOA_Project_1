@@ -1,13 +1,2 @@
-2024-03-16 20:35:19,532 - INFO - Message sent from process 2 to 1
-2024-03-16 20:35:19,533 - INFO - Process 2 current status Status.BLOCKED after Operation.SEND
-2024-03-16 20:35:19,533 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55dc0>>
-2024-03-16 20:35:19,533 - INFO - Process 2 started waiting for messages
-2024-03-16 20:35:19,533 - INFO - Process 2 received message from 1: Hello from Process 1
-2024-03-16 20:35:19,533 - INFO - Wait for message in process 2 is over
-2024-03-16 20:35:19,533 - INFO - Process 2 current status Status.RUNNING after Operation.RECEIVE
-2024-03-16 20:35:19,533 - INFO - Thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55dc0>> killed
-2024-03-16 20:35:48,426 - INFO - Message sent from process 2 to 1
-2024-03-16 20:35:48,426 - INFO - Process 2 current status Status.BLOCKED after Operation.SEND
-2024-03-16 20:35:48,426 - INFO - Creating thread for function <bound method Process.wait_for_message of <process.Process object at 0x102a55dc0>>
-2024-03-16 20:35:48,426 - INFO - Process 2 started waiting for messages
-2024-03-16 20:38:00,989 - WARNING - Process ID 2 is blocked and cannot process operation receive
+2024-04-04 16:17:08,854 - INFO - Message sent from process 2 to A
+2024-04-04 16:17:08,854 - INFO - Process 2 current status Status.RUNNING after Operation.SEND
