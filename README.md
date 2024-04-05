@@ -5,6 +5,18 @@ Simulation of inter-process communication using message passing. CLI allows proc
 
 This project simulates inter-process communication using a CommandLineInterface. It allows users to create processes, message exchange, and visualize system state.
 
+##Configuration
+
+Before starting, the system must be configured by editing the config.txt file. This file allows adjusting various parameters:
+
+`SynchronizationSender`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
+`SynchronizationReceiver`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
+`Addressing`=DIRECT_EXPLICIT|DIRECT_IMPLICIT|INDIRECT_STATIC|INDIRECT_DYNAMIC
+`Format`=FIXED_LENGTH|VARIABLE_LENGTH
+`MessageLength`=<number>
+`QueueDiscipline`=FIFO|PRIORITY
+`MaxProcesses`=<number>
+
 ## Usage
 
 To run the simulation, execute `main.py`. This will launch the CommandLineInterface, where you can interact with the simulated system via commands.
