@@ -149,11 +149,12 @@ class Simulation:
 
     def display_mailboxes_state(self):
         for mailbox in self.mailboxes:
-            self.logger.info(f"\n**************** Mailbox {mailbox} ****************")
+            
             info, data = self.mailboxes[mailbox].display_state()
             info_table = tabulate(info, headers='keys', tablefmt='fancy_grid', showindex=False)
             data_table = tabulate(data, headers='keys', tablefmt='fancy_grid', showindex=False)
-            self.logger.info(f"\nMailbox Information\n{info_table}\nMailbox Data\n{data_table}")
+            self.logger.info(f"\n**************** Mailbox {mailbox} ****************" +
+                             f"\nMailbox Information\n{info_table}\nMailbox Data\n{data_table}")
 
     def exit(self):
         for process in self.processes:
