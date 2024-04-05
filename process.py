@@ -30,20 +30,21 @@ class Process():
         self.status = Status.RUNNING
         self.format = format
         self.waitingThread = None
+        self.running = False
         self.messageLenght = messageLenght
         self.logger = Logger(PROCESS_LOGGER + "-" + pid) 
 
     def wait_for_message(self, sender=DEFAULT_SENDER):
         success = False
-        running = True
+        self.running = True
         self.logger.info(f"Process {self.pid} started waiting for messages")
-        while running:
+        while self.running:
             success = self.receive_onetime_message(sender)
             if success:
                 self.logger.info("Wait for message in process " + self.pid + " is over")
-                running = False
+                self.running = False
         self.manage_sync(Operation.RECEIVE, success)
-        self.kill_thread(self.wait_for_message)
+        self.kill_thread()
         return success
     
     def manage_sync(self, operation, success=False):
@@ -123,8 +124,10 @@ class Process():
         else:
             self.logger.info(f"Process {self.pid} is already waiting for a message.")
     
-    def kill_thread(self, function):
+    def kill_thread(self):
         self.waitingThread = None
+        self.running = False
+        self.logger.info(f"Thread for process {self.pid} killed")
 
 
     def receive_message(self, sender=DEFAULT_SENDER):

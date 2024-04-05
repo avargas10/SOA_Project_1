@@ -150,3 +150,8 @@ class Simulation:
             self.logger.info(f"\n**************** Mailbox {mailbox} ****************")
             info, data = self.mailboxes[mailbox].display_state()
             self.logger.info(f"\nMailbox Information\n{info}\nMailbox Data\n{data}")
+
+    def exit(self):
+        for process in self.processes:
+            self.processes[process].kill_thread()
+        self.logger.info("Simulation Ended")

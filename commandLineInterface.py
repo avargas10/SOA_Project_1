@@ -50,6 +50,7 @@ class CommandLineInterface:
             self.display_help()
         elif command_name == 'exit':
             print("Exiting...")
+            self.simulation.exit()
             exit()
         else:
             print("Invalid command. Type 'help' for a list of available commands.")
