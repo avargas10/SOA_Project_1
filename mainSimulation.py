@@ -5,6 +5,7 @@ from process import Process
 from logger import Logger
 from commandValidator import CommandValidator, Arguments
 from configuration import Addressing
+from tabulate import tabulate
 
 class Simulation:
     def __init__(self, conf):
@@ -141,7 +142,8 @@ class Simulation:
             processes_status.append(self.processes[process].display_state())
         if len(processes_status) > 0:
             concatenated_df = pd.concat(processes_status, ignore_index=True)
-            self.logger.info(f"\n{concatenated_df}")
+            table = tabulate(concatenated_df, headers='keys', tablefmt='fancy_grid', showindex=False)
+            self.logger.info(f"\n{table}")
         else:
             self.logger.error("There are no processes created")
 
@@ -149,7 +151,9 @@ class Simulation:
         for mailbox in self.mailboxes:
             self.logger.info(f"\n**************** Mailbox {mailbox} ****************")
             info, data = self.mailboxes[mailbox].display_state()
-            self.logger.info(f"\nMailbox Information\n{info}\nMailbox Data\n{data}")
+            info_table = tabulate(info, headers='keys', tablefmt='fancy_grid', showindex=False)
+            data_table = tabulate(data, headers='keys', tablefmt='fancy_grid', showindex=False)
+            self.logger.info(f"\nMailbox Information\n{info_table}\nMailbox Data\n{data_table}")
 
     def exit(self):
         for process in self.processes:
