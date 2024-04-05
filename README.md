@@ -9,13 +9,13 @@ This project simulates inter-process communication using a CommandLineInterface.
 
 Before starting, the system must be configured by editing the config.txt file. This file allows adjusting various parameters:
 
-`SynchronizationSender`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
-`SynchronizationReceiver`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
-`Addressing`=DIRECT_EXPLICIT|DIRECT_IMPLICIT|INDIRECT_STATIC|INDIRECT_DYNAMIC
-`Format`=FIXED_LENGTH|VARIABLE_LENGTH
-`MessageLength`=<number>
-`QueueDiscipline`=FIFO|PRIORITY
-`MaxProcesses`=<number>
+- `SynchronizationSender`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
+- `SynchronizationReceiver`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
+- `Addressing`=DIRECT_EXPLICIT|DIRECT_IMPLICIT|INDIRECT_STATIC|INDIRECT_DYNAMIC
+- `Format`=FIXED_LENGTH|VARIABLE_LENGTH
+- `MessageLength`=<number>
+- `QueueDiscipline`=FIFO|PRIORITY
+- `MaxProcesses`=<number>
 
 ## Usage
 
