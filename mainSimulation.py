@@ -18,11 +18,16 @@ class Simulation:
         return self.conf
 
     def create_process(self, args):
+        if len(self.processes) >= self.conf.get_max_processes_configuration():
+            # Log a message saying the max number of processes is reached
+            self.logger.error("Maximum number of processes reached. Cannot create more processes.")
+            return        
         syncSender = self.conf.get_sync_sender_configuration()
         syncReceiver = self.conf.get_sync_receiver_configuration()
         format, messageLenght = self.conf.get_format_configuration()
         addressing = self.conf.get_addressing_configuration()
         self.validate_create_process(args, addressing, syncReceiver, syncSender,format,messageLenght)
+        
 
     def create_mailbox(self, mailbox_id):
         mailboxSize = self.conf.get_queue_size_configuration()

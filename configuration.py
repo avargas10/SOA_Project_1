@@ -28,6 +28,7 @@ class Configuration:
         self.queue_size = 1
         self.messageLenght = 0
         self.queue_discipline = None
+        self.max_processes = None
         self.load_configuration(file_path)
 
     def load_configuration(self, file_path):
@@ -48,6 +49,8 @@ class Configuration:
                     self.queue_discipline = QueueDiscipline[value.upper()]
                 elif key == 'QueueSize':
                     self.queue_size = int(value)
+                elif key == 'MaxProcesses':
+                    self.max_processes = int(value)
 
     def get_sync_sender_configuration(self):
         return self.syncSender
@@ -66,6 +69,9 @@ class Configuration:
     
     def get_queue_size_configuration(self):
         return self.queue_size
+      
+    def get_max_processes_configuration(self):
+        return self.max_processes
 
 # Ejemplo de uso
 if __name__ == "__main__":
