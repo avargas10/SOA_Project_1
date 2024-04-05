@@ -1,14 +1,28 @@
 import logging
 import sys
 import os
-#run_test tests/test1.txt
-
 from constants import LOGS_PATH
 from datetime import datetime
 import shutil
 
 class Logger:
+    """
+    Clase para gestionar el registro de eventos.
+
+    Attributes:
+    - loggerName (str): Nombre del logger.
+    - filename (str): Ruta del archivo de registro.
+    - logger (logging.Logger): Objeto Logger de la biblioteca estándar de Python.
+    """
     def __init__(self, loggerName, printConsole=False, clean=False):
+        """
+        Inicializa un objeto Logger.
+
+        Parámetros:
+        - loggerName (str): Nombre del logger.
+        - printConsole (bool): Indica si se debe imprimir en la consola (por defecto False).
+        - clean (bool): Indica si se deben limpiar los registros existentes (por defecto False).
+        """
         if clean:
             self.clean_logs()
         self.loggerName = loggerName
@@ -32,19 +46,43 @@ class Logger:
         self.logger.addHandler(console_handler)
 
     def error(self, message):
+        """
+        Registra un mensaje de error.
+
+        Parámetros:
+        - message (str): Mensaje de error.
+        """
         self.logger.error(message)
 
     def warning(self, message):
+        """
+        Registra un mensaje de advertencia.
+
+        Parámetros:
+        - message (str): Mensaje de advertencia.
+        """
         self.logger.warning(message)
 
     def info(self, message):
+        """
+        Registra un mensaje informativo.
+
+        Parámetros:
+        - message (str): Mensaje informativo.
+        """
         self.logger.info(message)
     
     def clean_logs(self):
+        """
+        Limpia los registros existentes.
+        """
         shutil.rmtree(LOGS_PATH)
         os.mkdir(LOGS_PATH)
 
     def close(self):
+        """
+        Cierra el Logger.
+        """
         # Limpiar los manejadores de registro
         for handler in self.logger.handlers[:]:
             handler.close()
