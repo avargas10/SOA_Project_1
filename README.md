@@ -13,9 +13,9 @@ Before starting, the system must be configured by editing the config.txt file. T
 - `SynchronizationReceiver`=BLOCKING|NONBLOCKING|TEST_FOR_ARRIVAL
 - `Addressing`=DIRECT_EXPLICIT|DIRECT_IMPLICIT|INDIRECT_STATIC|INDIRECT_DYNAMIC
 - `Format`=FIXED_LENGTH|VARIABLE_LENGTH
-- `MessageLength`=<number>
+- `MessageLength`= Provide a number.
 - `QueueDiscipline`=FIFO|PRIORITY
-- `MaxProcesses`=<number>
+- `MaxProcesses`= Provide a number.
 
 ## Usage
 
