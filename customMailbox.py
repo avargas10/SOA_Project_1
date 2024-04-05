@@ -26,13 +26,16 @@ class CustomMailbox:
 
     def send(self, message):
         self.messages.append(message)
+        self.sort_queue()
         if len(self.messages) > self.size:
             self.remove_element()
         self.logger.info(f"Mailbox {self.id} new message inserted")
-        self.sort_queue()
 
     def remove_element(self):
-        self.messages.pop(0)
+        if self.queueDiscipline == QueueDiscipline.PRIORITY:
+            self.messages.pop(len(self.messages) - 1)
+        elif self.queueDiscipline == QueueDiscipline.FIFO:
+            self.messages.pop(0)
         self.logger.info(f"Mailbox {self.id} Oldest message deleted")
 
     def receive(self):
