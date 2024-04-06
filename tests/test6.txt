@@ -1,0 +1,6 @@
+create_process 1
+create_process 2
+create_process 3
+create_process 4
+display_state
+create_process 5

@@ -1,0 +1,54 @@
+
+#scenario 1 - DIRECT_EXPLICIT - FIFO
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=DIRECT_EXPLICIT
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=FIFO
+MaxProcesses=10
+
+#scenario 2 - DIRECT_IMPLICIT - PRIORITY
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=DIRECT_IMPLICIT
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=PRIORITY
+MaxProcesses=10
+
+#scenario 3 - INDIRECT_STATIC - FIFO
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=INDIRECT_STATIC
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=FIFO
+MaxProcesses=10
+
+#scenario 4 - INDIRECT_DYNAMIC - PRIORITY
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=INDIRECT_DYNAMIC
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=PRIORITY
+MaxProcesses=10
+
+#scenario 5 - DIRECT_EXPLICIT - NONBLOCKING - FIFO
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=NONBLOCKING
+Addressing=DIRECT_EXPLICIT
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=FIFO
+MaxProcesses=10
+
+#scenario 6 - DIRECT_EXPLICIT - FIFO - MAXPROCESSES
+SynchronizationSender=NONBLOCKING
+SynchronizationReceiver=BLOCKING
+Addressing=DIRECT_EXPLICIT
+Format=VARIABLE_LENGTH
+MessageLenght=10
+QueueDiscipline=FIFO
+MaxProcesses=3
