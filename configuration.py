@@ -1,4 +1,7 @@
+import pandas as pd
+
 from enum import Enum
+from tabulate import tabulate
 
 class Synchronization(Enum):
     """
@@ -60,6 +63,7 @@ class Configuration:
         - file_path (str): Ruta del archivo de configuración.
         """
         with open(file_path, 'r') as file:
+            
             for line in file:
                 key, value = line.strip().split('=')
                 if key == 'SynchronizationSender':
@@ -117,6 +121,36 @@ class Configuration:
       
     def get_max_processes_configuration(self):
         return self.max_processes
+    
+    def to_dataframe(self):
+        """
+        Genera un DataFrame con el contenido actual de los parámetros.
+        """
+        data = {
+            'Sender Sync': [self.syncSender],
+            'Receiver Sync': [self.syncReceiver],
+            'Adressing': [self.addr],
+            'Format': [self.format],
+            'Mailbox Size': [self.queue_size],
+            'Message Lenght': [self.messageLenght],
+            'Queue Discipline': [self.queue_discipline],
+            'Max Process Limit': [self.max_processes]
+        }
+        df = pd.DataFrame(data)
+        # Transponer el DataFrame
+        df_transposed = df.transpose()
+        # Restablecer los índices
+        df_transposed.reset_index(inplace=True)
+        # Renombrar las columnas
+        df_transposed.columns = ['Parámetro', 'Valor']
+        return df_transposed
+
+    def print_configuration(self):
+        """
+        Imprime el contenido actual de los parámetros en formato tabular.
+        """
+        df = self.to_dataframe()
+        print(tabulate(df, headers='keys', tablefmt='pretty'))
 
 
 # Ejemplo de uso

@@ -2,6 +2,7 @@ class CommandLineInterface:
     def __init__(self, simulation):
         """Inicializa la interfaz de línea de comandos con la simulación proporcionada."""
         self.simulation = simulation
+        self.commandHistory = []
 
     def start(self):
         """Comienza la interfaz de línea de comandos."""
@@ -19,6 +20,7 @@ class CommandLineInterface:
 
     def execute_command(self, command):
         """Ejecuta el comando proporcionado por el usuario."""
+        self.commandHistory.append(command)
         parts = command.split()
         if not parts:
             return
@@ -46,12 +48,20 @@ class CommandLineInterface:
             self.run_tests(test_file_path)
         elif command_name == 'run_default_test':
             self.run_tests("tests/test1.txt")
+        elif command_name == 'save_history':
+            config_file_path = ' '.join(args[0:])
+            self.save_command_history(config_file_path)
         elif command_name == 'help':
             self.display_help()
         elif command_name == 'exit':
             print("Exiting...")
             self.simulation.exit()
             exit()
+        elif command_name == 'reset':
+            print("Reseting...")
+            config_file_path = ' '.join(args[0:])
+            self.simulation.reset(config_file_path)
+
         else:
             print("Invalid command. Type 'help' for a list of available commands.")
 
@@ -64,6 +74,19 @@ class CommandLineInterface:
         print("send_message <sender_pid> <receiver_pid>/<mailbox_id> <priority> <content> ")       
         print("receive_message <receiver_pid> <sender_pid> <mailbox>")
         print("display_state")
+        print("reset <new config file path>")
         print("help")
         print("exit")
+
+    def save_command_history(self, output_file):
+        """
+        Save all strings from self.commandHistory into a single text file.
+        
+        Parameters:
+        - output_file (str): Path to the output file.
+        """
+        with open(output_file, 'w') as file:
+            for command in self.commandHistory:
+                print("command ",command)
+                file.write(command + '\n')
 

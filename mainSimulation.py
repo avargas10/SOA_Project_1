@@ -3,12 +3,13 @@ import pandas as pd
 from customMailbox import CustomMailbox, MailboxTypes
 from process import Process
 from logger import Logger
+from configuration import Configuration
 from commandValidator import CommandValidator, Arguments
 from configuration import Addressing
 from tabulate import tabulate
 
 class Simulation:
-    def __init__(self, conf):
+    def __init__(self, configFile):
         """
         Inicializa la simulación con la configuración proporcionada.
 
@@ -17,12 +18,15 @@ class Simulation:
         """
         self.processes = {}
         self.mailboxes = {}
-        self.conf = conf
+        self.conf = Configuration(configFile)
         self.logger = Logger("MainSimulation", True, True)
         self.commandValidator = CommandValidator()
+        config_table = self.conf.to_dataframe()
+        config_table = tabulate(config_table, headers='keys', tablefmt='fancy_grid', showindex=False)
+        self.logger.info(f"Simulation Actual Configuration\n{config_table}")
 
     def get_conf(self):
-        """
+        """ 
         Obtiene la configuración de la simulación.
         
         Salida:
@@ -268,3 +272,14 @@ class Simulation:
         for process in self.processes:
             self.processes[process].kill_thread()
         self.logger.info("Simulation Ended")
+    
+    def reset(self, configFile):
+        self.exit()
+        self.processes = {}
+        self.mailboxes = {}
+        self.conf = Configuration(configFile)
+        self.commandValidator = CommandValidator()
+        # self.logger = Logger("MainSimulation", True, True)
+        config_table = self.conf.to_dataframe()
+        config_table = tabulate(config_table, headers='keys', tablefmt='fancy_grid', showindex=False)
+        self.logger.info(f"Simulation New Configuration\n{config_table}")
