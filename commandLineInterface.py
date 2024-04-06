@@ -45,7 +45,7 @@ class CommandLineInterface:
             test_file_path = args[0]
             self.run_tests(test_file_path)
         elif command_name == 'run_default_test':
-            self.run_tests("/Users/andresvargasrivera/repos/SOA/SOA_Project_1/tests/test1.txt")
+            self.run_tests("tests/test1.txt")
         elif command_name == 'help':
             self.display_help()
         elif command_name == 'exit':
