@@ -30,17 +30,17 @@ class Simulation:
         """
         return self.conf
 
-    def create_process(self, args):
-        if len(self.processes) >= self.conf.get_max_processes_configuration():
-            # Log a message saying the max number of processes is reached
-            self.logger.error("Maximum number of processes reached. Cannot create more processes.")
-            return        
+    def create_process(self, args):        
         """
         Crea un proceso en la simulación.
 
         Parámetros:
         - args: Argumentos para la creación del proceso.
         """
+        if len(self.processes) >= self.conf.get_max_processes_configuration():
+            # Log a message saying the max number of processes is reached
+            self.logger.error("Maximum number of processes reached. Cannot create more processes.")
+            return
         syncSender = self.conf.get_sync_sender_configuration()
         syncReceiver = self.conf.get_sync_receiver_configuration()
         format, messageLength = self.conf.get_format_configuration()
