@@ -1,11 +1,13 @@
 import time
 import pandas as pd
+import sys
 
 from threading import Thread
 from message import Message
 from enum import Enum
 from configuration import Synchronization, Format
 from logger import Logger
+from logViewer import LogViewer
 from constants import PROCESS_LOGGER, DEFAULT_SENDER
 
 class Operation(Enum):
@@ -58,7 +60,9 @@ class Process():
         self.waitingThread = None
         self.running = False
         self.messageLenght = messageLenght
-        self.logger = Logger(PROCESS_LOGGER + "-" + pid) 
+        self.logPath = PROCESS_LOGGER + "-" + pid
+        self.logViewer = None
+        self.logger = Logger(self.logPath) 
 
     def wait_for_message(self, sender=DEFAULT_SENDER):
         """
@@ -254,3 +258,7 @@ class Process():
         }
         df = pd.DataFrame(data)
         return df
+
+    def display_live(self):
+        self.logViewer = LogViewer(self.logPath,f"Process-{self.pid}")
+        self.logViewer.run()

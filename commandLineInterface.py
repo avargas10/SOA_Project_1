@@ -43,11 +43,13 @@ class CommandLineInterface:
             self.simulation.process_receive(args)
         elif command_name == 'display_state':
             self.simulation.display_state()
+        elif command_name == 'display_live':
+            self.simulation.display_live()
         elif command_name == 'run_test':
             test_file_path = args[0]
             self.run_tests(test_file_path)
         elif command_name == 'run_default_test':
-            self.run_tests("tests/test1.txt")
+            self.run_tests("tests/test_display.txt")
         elif command_name == 'save_history':
             config_file_path = ' '.join(args[0:])
             self.save_command_history(config_file_path)
@@ -68,7 +70,7 @@ class CommandLineInterface:
     def display_help(self):
         """Muestra la lista de comandos disponibles."""
         print("Available commands:")
-        print("create_process <pid>")
+        print("create_process <pid> <Mailbox>")
         print("create_mailbox <mailbox_id>")
         print("assign_mailbox <pid> <mailbox_id>")
         print("send_message <sender_pid> <receiver_pid>/<mailbox_id> <priority> <content> ")       

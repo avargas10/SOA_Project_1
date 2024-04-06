@@ -4,6 +4,7 @@ from constants import MAILBOX_LOGGER
 from configuration import QueueDiscipline
 from enum import Enum
 from operator import attrgetter
+from logViewer import LogViewer
 
 class MailboxTypes(Enum):
     """
@@ -31,7 +32,9 @@ class CustomMailbox:
         self.size = size
         self.queueDiscipline = queueDiscipline
         self.messages = []
-        self.logger = Logger(MAILBOX_LOGGER + "-" + id) 
+        self.logPath = MAILBOX_LOGGER + "-" + id
+        self.logViewer = None
+        self.logger = Logger(self.logPath) 
         self.logger.info(f"Mailbox {id}, created with discipline {queueDiscipline.name} and size {size}")
 
     def clean(self):
@@ -117,3 +120,7 @@ class CustomMailbox:
         }, index=['Config Information'])
 
         return df_info, df_data
+    
+    def display_live(self):
+        self.logViewer = LogViewer(self.logPath,f"Mailbox-{self.id}")
+        self.logViewer.run()

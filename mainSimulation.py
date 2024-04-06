@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 from customMailbox import CustomMailbox, MailboxTypes
 from process import Process
 from logger import Logger
@@ -231,6 +232,12 @@ class Simulation:
         else:
             self.logger.error(f"Invalid process, invalide mailbox ID or Adressing set to {addressing}.")
 
+    def display_live(self):
+        for process in self.processes:
+            self.processes[process].display_live()
+        for mailbox in self.mailboxes:
+            self.mailboxes[mailbox].display_live()
+    
     def display_state(self): 
         """
         Muestra el estado actual de la simulación.
